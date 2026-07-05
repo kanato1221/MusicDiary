@@ -17,7 +17,7 @@ struct ContentView: View {
 
             AlbumsView()
                 .tabItem {
-                    Label("アルバム", systemImage: "rectangle.stack.fill")
+                    Label(ProcessInfo.processInfo.environment["HOGE"]!, systemImage: "rectangle.stack.fill")
                 }
 
             CommunityView()
