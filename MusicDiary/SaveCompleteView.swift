@@ -29,7 +29,7 @@ struct SaveCompleteView: View {
                 }
 
                 Button(action: onBackToHub) {
-                    Text("ハブに戻る")
+                    Text("ホームに戻る")
                         .font(.headline)
                         .frame(width: 180, height: 48)
                 }

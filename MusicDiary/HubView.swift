@@ -47,7 +47,7 @@ struct HubView: View {
                     Spacer()
                 }
             }
-            .navigationTitle("ハブ")
+            .navigationTitle("home")
             .navigationDestination(for: HubRoute.self) { route in
                 switch route {
                 case .diaryWrite:

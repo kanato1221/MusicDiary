@@ -52,7 +52,7 @@ struct DiaryCalendarView: View {
                 .padding(18)
             }
             .background(Color.mdPaper)
-            .navigationTitle("日記")
+            .navigationTitle("diary")
         }
     }
 

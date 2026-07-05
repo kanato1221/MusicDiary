@@ -58,11 +58,45 @@ struct DiaryDetailView: View {
                             .foregroundStyle(Color.mdInk)
                     }
                 }
+
+                ShareEntryCard(entry: entry)
             }
             .padding(18)
         }
         .background(Color.mdPaper)
         .navigationTitle("日記")
+    }
+}
+
+private struct ShareEntryCard: View {
+    let entry: DiaryEntry
+    @EnvironmentObject private var communityStore: CommunityStore
+
+    var body: some View {
+        LayoutCard {
+            VStack(alignment: .leading, spacing: 12) {
+                SectionHeader(title: "共有", icon: "paperplane")
+
+                if communityStore.hasPublished(diaryEntryID: entry.id) {
+                    Label("この日記は投稿済みです", systemImage: "checkmark.circle.fill")
+                        .font(.subheadline.weight(.semibold))
+                        .foregroundStyle(Color.mdGreen)
+                } else {
+                    Text("公開する文章を確認して、みんなの投稿に共有できます。")
+                        .font(.subheadline)
+                        .foregroundStyle(.secondary)
+
+                    NavigationLink {
+                        ShareEntryView(entry: entry)
+                    } label: {
+                        Label("共有する", systemImage: "paperplane.fill")
+                            .frame(maxWidth: .infinity)
+                    }
+                    .buttonStyle(.borderedProminent)
+                    .tint(Color.mdInk)
+                }
+            }
+        }
     }
 }
 

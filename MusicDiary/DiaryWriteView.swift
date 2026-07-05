@@ -22,7 +22,7 @@ struct DiaryWriteView: View {
     var body: some View {
         Form {
             Section("タイトル") {
-                TextField("例: 夕焼けの帰り道", text: $title)
+                TextField("例:　部活の大会", text: $title)
             }
 
             Section("日付") {
