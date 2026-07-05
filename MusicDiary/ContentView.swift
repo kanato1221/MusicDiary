@@ -9,16 +9,27 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
-    }
-}
+        TabView {
+            HubView()
+                .tabItem {
+                    Label("ホーム", systemImage: "house.fill")
+                }
 
-#Preview {
-    ContentView()
+            AlbumsView()
+                .tabItem {
+                    Label("アルバム", systemImage: "rectangle.stack.fill")
+                }
+
+            CommunityView()
+                .tabItem {
+                    Label("みんなの投稿", systemImage: "person.2.fill")
+                }
+
+            DiaryCalendarView()
+                .tabItem {
+                    Label("日記", systemImage: "calendar")
+                }
+        }
+        .tint(Color.mdInk)
+    }
 }

@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct MusicDiaryApp: App {
+    @StateObject private var diaryStore = DiaryStore()
+
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(diaryStore)
         }
     }
 }
